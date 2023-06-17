@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Contact</title>
+  <title>Cyclo Punk</title>
   <style>
     /* CSS styles */
     body {
@@ -13,8 +13,7 @@
     }
     
     header {
-      background-color:#080808
-;
+      background-color: #f5f5f5;
       padding: 20px;
       display: flex;
       align-items: center;
@@ -24,12 +23,18 @@
     .logo {
       width: 150px;
       margin-right: 20px;
+      transition: width 0.3s;
+    }
+    
+    .logo.shrink {
+      width: 100px;
     }
     
     nav {
       background-color: #fff;
       padding: 10px;
       text-align: center;
+      width: 100%; /* Set the width to 100% */
     }
     
     nav a {
@@ -41,6 +46,7 @@
     
     .content {
       padding: 20px;
+      margin-top: 50px;
     }
     
     h2 {
@@ -75,6 +81,16 @@
       background-color: #ddd;
     }
   </style>
+  <script>
+    window.addEventListener('scroll', function() {
+      var logo = document.querySelector('.logo');
+      if (window.scrollY > 0) {
+        logo.classList.add('shrink');
+      } else {
+        logo.classList.remove('shrink');
+      }
+    });
+  </script>
 </head>
 <body>
   <header>
@@ -83,14 +99,15 @@
   
   <nav>
     <button type="button" class="button"><a href="../index.html">Home</a></button>
-    <button type="button" class="button"><a href="/html files/about.html">About</a></button>
-    <button type="button" class="button" style="background-color: #B6977D;"><a href="/html files/contact.html">Contact</a></button>
-    <button type="button" class="button"><a href="/html files/photos.html">Photos</a></button>
+    <button type="button" class="button" ><a href="/html files/about.html">About</a></button>
+    <button type="button" class="button"style="background-color: #B6977D;"><a href="/html files/contact.html">Contact</a></button>
   </nav>
   
   <div class="content">
-    <h2>Contact</h2>
-    <p>This is the Contact page of my website.</p>
+    <h2>Who is Cyclo Punk?</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed dignissim felis. Morbi et enim at nibh semper feugiat sed vel arcu. Fusce sed felis in odio efficitur auctor non id quam. Vestibulum nec nunc at ipsum tincidunt tristique. Aliquam erat volutpat. In hac habitasse platea dictumst. Mauris eget diam sed justo auctor aliquam at sed nulla.</p>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed dignissim felis. Morbi et enim at nibh semper feugiat sed vel arcu. Fusce sed felis in odio efficitur auctor non id quam. Vestibulum nec nunc at ipsum tincidunt tristique. Aliquam erat volutpat. In hac habitasse platea dictumst. Mauris eget diam sed justo auctor aliquam at sed nulla. Nullam at sem sit amet leo laoreet interdum. Sed placerat magna vel lacus tristique scelerisque. Proin malesuada odio in diam convallis sollicitudin. Duis sed tortor at tortor iaculis sollicitudin. Nam vel dignissim enim, ac vestibulum lorem. Nulla facilisi.</p>
   </div>
   
   <footer>
