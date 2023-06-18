@@ -13,7 +13,10 @@
     }
     
     header {
-      background-color: #f5f5f5;
+      position: relative; /* Add position relative to the header */
+      background-image: url("/assets/bike2.png"); /* Add background image */
+      background-size: cover; /* Adjust background image size */
+      background-repeat: no-repeat; /* Prevent background image repetition */
       padding: 20px;
       display: flex;
       align-items: center;
@@ -30,11 +33,31 @@
       width: 100px;
     }
     
+    .overlay-container {
+      position: relative; /* Add position relative to the container */
+      z-index: 0; /* Set lower z-index to place below other elements */
+    }
+    
+    .overlay {
+      position: absolute; /* Add position absolute to create overlay */
+      top: 100%; /* Adjust the top value to position the overlay below the content */
+      left: 0;
+      width: 100%;
+      height: calc(100% - 100px); /* Adjust the height value to account for the space occupied by the nav bar */
+      background-image: url("/assets/eli2.png"); /* Add overlay image */
+      background-size: cover; /* Adjust overlay image size */
+      background-repeat: no-repeat; /* Prevent overlay image repetition */
+      opacity: 0.5; /* Adjust overlay opacity */
+      z-index: -1; /* Set lower z-index to place below other elements */
+    }
+    
     nav {
       background-color: #fff;
       padding: 10px;
       text-align: center;
       width: 100%; /* Set the width to 100% */
+      position: relative; /* Add position relative to the nav */
+      z-index: 1; /* Add higher z-index to keep nav on top */
     }
     
     nav a {
@@ -47,6 +70,8 @@
     .content {
       padding: 20px;
       margin-top: 50px;
+      position: relative; /* Add position relative to the content */
+      z-index: 1; /* Add higher z-index to keep content on top of the overlay */
     }
     
     h2 {
@@ -96,20 +121,20 @@
   <header>
     <img src="/assets/eli.png" alt="Cyclo Punk Logo" class="logo">
   </header>
-  
-  <nav>
+    <nav>
     <button type="button" class="button"><a href="../index.html">Home</a></button>
-    <button type="button" class="button" ><a href="/html files/about.html">About</a></button>
-    <button type="button" class="button"style="background-color: #B6977D;"><a href="/html files/contact.html">Contact</a></button>
+    <button type="button" class="button"><a href="/html files/about.html">About</a></button>
+    <button type="button" class="button" style="background-color: #B6977D;"><a href="/html files/contact.html">Contact</a></button>
   </nav>
-  
-  <div class="content">
-    <h2>Who is Cyclo Punk?</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed dignissim felis. Morbi et enim at nibh semper feugiat sed vel arcu. Fusce sed felis in odio efficitur auctor non id quam. Vestibulum nec nunc at ipsum tincidunt tristique. Aliquam erat volutpat. In hac habitasse platea dictumst. Mauris eget diam sed justo auctor aliquam at sed nulla.</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed dignissim felis. Morbi et enim at nibh semper feugiat sed vel arcu. Fusce sed felis in odio efficitur auctor non id quam. Vestibulum nec nunc at ipsum tincidunt tristique. Aliquam erat volutpat. In hac habitasse platea dictumst. Mauris eget diam sed justo auctor aliquam at sed nulla. Nullam at sem sit amet leo laoreet interdum. Sed placerat magna vel lacus tristique scelerisque. Proin malesuada odio in diam convallis sollicitudin. Duis sed tortor at tortor iaculis sollicitudin. Nam vel dignissim enim, ac vestibulum lorem. Nulla facilisi.</p>
+  <div class="overlay-container">
+    <div class="content">
+      <h2>Who is Cyclo Punk?</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed dignissim felis. Morbi et enim at nibh semper feugiat sed vel arcu. Fusce sed felis in odio efficitur auctor non id quam. Vestibulum nec nunc at ipsum tincidunt tristique. Aliquam erat volutpat. In hac habitasse platea dictumst. Mauris eget diam sed justo auctor aliquam at sed nulla.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed dignissim felis. Morbi et enim at nibh semper feugiat sed vel arcu. Fusce sed felis in odio efficitur auctor non id quam. Vestibulum nec nunc at ipsum tincidunt tristique. Aliquam erat volutpat. In hac habitasse platea dictumst. Mauris eget diam sed justo auctor aliquam at sed nulla. Nullam at sem sit amet leo laoreet interdum. Sed placerat magna vel lacus tristique scelerisque. Proin malesuada odio in diam convallis sollicitudin. Duis sed tortor at tortor iaculis sollicitudin. Nam vel dignissim enim, ac vestibulum lorem. Nulla facilisi.</p>
+    </div>
+    <div class="overlay"></div> <!-- Add overlay div -->
   </div>
-  
+
   <footer>
     <p>&copy; 2023 My Website. All rights reserved.</p>
   </footer>

@@ -13,7 +13,6 @@
     }
     
     header {
-      background-color: #f5f5f5;
       padding: 20px;
       display: flex;
       align-items: center;
@@ -34,7 +33,7 @@
       background-color: #fff;
       padding: 10px;
       text-align: center;
-      width: 100%; /* Set the width to 100% */
+      width: 100%;
     }
     
     nav a {
@@ -44,33 +43,45 @@
       font-weight: bold;
     }
     
-    .content {
-      padding: 20px;
-      margin-top: 50px;
+    .dropdown {
+      position: relative;
+      display: inline-block;
     }
     
-    h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
-    }
-    
-    p {
-      margin-bottom: 20px;
-    }
-    
-    footer {
+    .dropdown-menu-icon {
+      width: 20px;
+      height: 20px;
       background-color: #333;
-      padding: 20px;
-      text-align: center;
-      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
     
     .button {
       display: inline-block;
       margin: 10px;
       padding: 10px 20px;
-      background-color: #fff;
-      color: #000;
+      background-color: #333;
+      color: #fff;
       text-decoration: none;
       border: none;
       border-radius: 0;
@@ -78,7 +89,26 @@
     }
     
     .button:hover {
-      background-color: #ddd;
+      background-color: #555;
+    }
+  
+    .full-page-img {
+      width: 100%;
+      height: auto;
+      z-index: -1;
+    }
+    
+    .signup-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: yellow;
+      color: #333;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      z-index: 1;
     }
   </style>
   <script>
@@ -96,19 +126,33 @@
   <header>
     <img src="/assets/eli.png" alt="Cyclo Punk Logo" class="logo">
   </header>
-  
   <nav>
-    <button type="button" class="button"><a href="../index.html">Home</a></button>
-    <button type="button" class="button" ><a href="/html files/about.html">About</a></button>
-    <button type="button" class="button"><a href="/html files/contact.html">Contact</a></button>
+    <div class="dropdown">
+      <button class="button dropdown-menu-icon"></button>
+      <div class="dropdown-content">
+        <a href="#">In Stock</a>
+        <a href="#">Out of Stock</a>
+        <a href="#">How Many Are Left</a>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="button dropdown-menu-icon"></button>
+      <div class="dropdown-content">
+        <a href="#">Tune-ups</a>
+        <a href="#">Basic Adjustments</a>
+        <a href="#">A-La-Carte</a>
+      </div>
+    </div>
   </nav>
+
   
   <div class="content">
-    <h2>Who is Cyclo Punk?</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed dignissim felis. Morbi et enim at nibh semper feugiat sed vel arcu. Fusce sed felis in odio efficitur auctor non id quam. Vestibulum nec nunc at ipsum tincidunt tristique. Aliquam erat volutpat. In hac habitasse platea dictumst. Mauris eget diam sed justo auctor aliquam at sed nulla.</p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed dignissim felis. Morbi et enim at nibh semper feugiat sed vel arcu. Fusce sed felis in odio efficitur auctor non id quam. Vestibulum nec nunc at ipsum tincidunt tristique. Aliquam erat volutpat. In hac habitasse platea dictumst. Mauris eget diam sed justo auctor aliquam at sed nulla. Nullam at sem sit amet leo laoreet interdum. Sed placerat magna vel lacus tristique scelerisque. Proin malesuada odio in diam convallis sollicitudin. Duis sed tortor at tortor iaculis sollicitudin. Nam vel dignissim enim, ac vestibulum lorem. Nulla facilisi.</p>
+    <img src="/assets/bike2.png" alt="Pexels_free_bike_image" class="full-page-img">
+    <a href="#" class="signup-button">Sign Up</a>
   </div>
+  <h2>Who is Cyclo Punk?</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed dignissim felis. Morbi et enim at nibh semper feugiat sed vel arcu. Fusce sed felis in odio efficitur auctor non id quam. Vestibulum nec nunc at ipsum tincidunt tristique. Aliquam erat volutpat. In hac habitasse platea dictumst. Mauris eget diam sed justo auctor aliquam at sed nulla. Nullam at sem sit amet leo laoreet interdum. Sed placerat magna vel lacus tristique scelerisque. Proin malesuada odio in diam convallis sollicitudin. Duis sed tortor at tortor iaculis sollicitudin. Nam vel dignissim enim, ac vestibulum lorem. Nulla facilisi.</p>
+
   
   <footer>
     <p>&copy; 2023 My Website. All rights reserved.</p>
