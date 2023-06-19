@@ -109,7 +109,7 @@
     .signup-button {
       position: absolute;
       top: 50%;
-      right: -60px;
+      right: 80px;
       background-color: yellow;
       color: #333;
       padding: 10px 20px;
@@ -122,7 +122,15 @@
     }
     
     .signup-button.shrink {
-      right: -80px;
+      right: 160px;
+    }
+    
+    .signup-button.show {
+      right: 20px;
+    }
+    
+    .signup-button.show.shrink {
+      right: 60px;
     }
     
     .signup-button a {
@@ -148,15 +156,20 @@
     });
     
     document.addEventListener('DOMContentLoaded', function() {
-      var servicesDropdown = document.querySelector('.services-dropdown');
-      var servicesButton = document.querySelector('.dropdown.services button');
-      servicesButton.addEventListener('click', function(event) {
-        event.stopPropagation();
-        servicesDropdown.style.display = 'block';
+      var logo = document.querySelector('.logo');
+      var bikeImage = document.querySelector('.full-page-img');
+      var signupButton = document.querySelector('.signup-button');
+      
+      var observer = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting) {
+          signupButton.classList.remove('show');
+        } else {
+          signupButton.classList.add('show');
+        }
       });
-      document.addEventListener('click', function() {
-        servicesDropdown.style.display = 'none';
-      });
+      
+      observer.observe(logo);
+      observer.observe(bikeImage);
     });
   </script>
 </head>
@@ -187,7 +200,7 @@
   
   <div class="content">
     <img src="/assets/bike2.png" alt="Pexels_free_bike_image" class="full-page-img">
-    <a href="/html files/signup.html" class="signup-button">Sign Up</a>
+    <a href="/html files/signup.html" class="signup-button">Sign Up/Sign in</a>
   </div>
   <h2>Who is Cyclo Punk?</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed dignissim felis. Morbi et enim at nibh semper feugiat sed vel arcu. Fusce sed felis in odio efficitur auctor non id quam. Vestibulum nec nunc at ipsum tincidunt tristique. Aliquam erat volutpat. In hac habitasse platea dictumst. Mauris eget diam sed justo auctor aliquam at sed nulla. Nullam at sem sit amet leo laoreet interdum. Sed placerat magna vel lacus tristique scelerisque. Proin malesuada odio in diam convallis sollicitudin. Duis sed tortor at tortor iaculis sollicitudin. Nam vel dignissim enim, ac vestibulum lorem. Nulla facilisi.</p>

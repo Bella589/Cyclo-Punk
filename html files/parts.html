@@ -105,6 +105,46 @@
     .button:hover {
       background-color: #ddd;
     }
+    
+    /* Amazon-style product box */
+    .product-box {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .product-image {
+      flex: 0 0 200px;
+      margin-right: 20px;
+    }
+    
+    .product-image img {
+      width: 100%;
+      height: auto;
+    }
+    
+    .product-details {
+      flex: 1;
+    }
+    
+    .product-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .product-price {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    
+    .product-description {
+      margin-bottom: 10px;
+    }
   </style>
   <script>
     window.addEventListener('scroll', function() {
@@ -121,7 +161,7 @@
   <header>
     <img src="/assets/eli.png" alt="Cyclo Punk Logo" class="logo">
   </header>
-    <nav>
+  <nav>
     <button type="button" class="button"><a href="../index.html">Home</a></button>
     <button type="button" class="button"><a href="/html files/about.html">About</a></button>
     <button type="button" class="button"><a href="/html files/contact.html">Contact</a></button>
@@ -129,8 +169,18 @@
   <div class="overlay-container">
     <div class="content">
       <h2>Parts</h2>
-      <p> Note To-Self: create more parts sections, backend for adding in instock, outofstock, etc</p>
-      <p></p>
+      <div class="product-box">
+        <div class="product-image">
+          <img src="/assets/bchain.png" alt="Bike Chain">
+        </div>
+        <div class="product-details">
+          <div class="product-title">Bike Chain</div>
+          <div class="product-price">$29.99</div>
+          <div class="product-description">High-quality bike chain for smooth and reliable gear shifting.</div>
+          <button class="button">Add to Cart</button>
+        </div>
+      </div>
+      <!-- Add more product boxes here -->
     </div>
     <div class="overlay"></div> <!-- Add overlay div -->
   </div>
