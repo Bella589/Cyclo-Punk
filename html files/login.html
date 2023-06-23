@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sign Up</title>
+  <title>Login</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -37,7 +37,6 @@
       margin-bottom: 5px;
     }
     
-    input[type="text"],
     input[type="email"],
     input[type="password"] {
       width: 100%;
@@ -47,8 +46,7 @@
       box-sizing: border-box;
     }
     
-    button[type="submit"],
-    button[type="button"] {
+    button[type="submit"] {
       display: block;
       width: 100%;
       padding: 10px;
@@ -59,20 +57,15 @@
       cursor: pointer;
     }
     
-    button[type="submit"]:hover,
-    button[type="button"]:hover {
+    button[type="submit"]:hover {
       background-color: #555;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Sign Up</h1>
-    <form>
-      <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-      </div>
+    <h1>Login</h1>
+    <form id="loginForm">
       <div class="form-group">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
@@ -81,15 +74,24 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
       </div>
-      <button type="submit">Sign Up</button>
-      <button type="button" onclick="redirectToLogin()">Returning User</button>
+      <button type="submit">Login</button>
     </form>
   </div>
 
   <script>
-    function redirectToLogin() {
-      window.location.href = "login.html"; // Replace "login.html" with the actual path to your login page
-    }
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent the default form submission behavior
+
+      // Retrieve the entered email and password values
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+
+      // Perform any necessary validation or authentication checks
+      // Here, you can compare the entered credentials with the stored user data
+      
+      // Redirect the user to the dashboard or desired page upon successful login
+      window.location.href = "dashboard.html"; // Replace "dashboard.html" with the actual path to your dashboard page
+    });
   </script>
 </body>
 </html>

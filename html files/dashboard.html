@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    
+    .container {
+      width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .user-info {
+      margin-bottom: 20px;
+    }
+    
+    .user-info label {
+      font-weight: bold;
+    }
+    
+    .parts-form {
+      margin-bottom: 20px;
+    }
+    
+    .parts-form label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .parts-form input[type="text"],
+    .parts-form input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    .parts-form button[type="submit"] {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    
+    .parts-form button[type="submit"]:hover {
+      background-color: #555;
+    }
+    
+    .logout-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .logout-button button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    
+    .logout-button button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the Dashboard</h1>
+    <div class="user-info">
+      <label>Name:</label>
+      <span id="username"></span>
+    </div>
+    <div class="user-info">
+      <label>Email:</label>
+      <span id="useremail"></span>
+    </div>
+
+    <div class="parts-form">
+      <h2>Edit Parts</h2>
+      <form id="partsForm">
+        <div class="form-group">
+          <label for="partName">Part Name:</label>
+          <input type="text" id="partName" name="partName" required>
+        </div>
+        <div class="form-group">
+          <label for="partPrice">Price:</label>
+          <input type="number" id="partPrice" name="partPrice" required>
+        </div>
+        <div class="form-group">
+          <label for="partQuantity">Quantity:</label>
+          <input type="number" id="partQuantity" name="partQuantity" required>
+        </div>
+        <button type="submit">Add Part</button>
+      </form>
+    </div>
+
+    <!-- Add more user information or features as needed -->
+    <div class="logout-button">
+      <button id="logoutButton">Logout</button>
+    </div>
+  </div>
+
+  <script>
+    // Define an array to store user accounts
+    var userAccounts = [
+      { email: "ahabelle2023@gmail.com", password: "test", name: "Anabelle Holdun" },
+      // Add more user accounts as needed
+    ];
+
+    // Retrieve the user data from the array based on the email
+    var currentUser = userAccounts.find(function(user) {
+      return user.email === "ahabelle2023@gmail.com";
+    });
+
+    // Populate the user information on the dashboard
+    if (currentUser) {
+      document.getElementById("username").textContent = currentUser.name;
+      document.getElementById("useremail").textContent = currentUser.email;
+    }
+
+    // Parts form submit event handler
+    document.getElementById("partsForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Retrieve the entered part details
+      var partName = document.getElementById("partName").value;
+      var partPrice = document.getElementById("partPrice").value;
+      var partQuantity = document.getElementById("partQuantity").value;
+
+      // Perform any necessary data validation
+
+      // Send the part data to the backend for processing
+      var partData = {
+        name: partName,
+        price: partPrice,
+        quantity: partQuantity
+      };
+
+      // Replace "apiEndpoint" with the actual URL endpoint to your backend API
+      fetch("apiEndpoint", {
+        method: "POST",
+        body: JSON.stringify(partData),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+        .then(function(response) {
+          if (response.ok) {
+            // Part successfully added, perform any necessary UI updates or notifications
+            console.log("Part added successfully");
+            // Clear the form fields
+            document.getElementById("partName").value = "";
+            document.getElementById("partPrice").value = "";
+            document.getElementById("partQuantity").value = "";
+          } else {
+            // Error occurred while adding the part, handle the error case
+            console.error("Failed to add part");
+          }
+        })
+        .catch(function(error) {
+          // Error occurred during the request, handle the error case
+          console.error("An error occurred", error);
+        });
+    });
+
+    // Logout button click event handler
+    document.getElementById("logoutButton").addEventListener("click", function() {
+      // Perform any necessary logout or session cleanup operations
+
+      // Redirect the user to the login page
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>

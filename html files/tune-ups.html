@@ -117,6 +117,28 @@
       text-decoration: none;
       z-index: 1;
     }
+    
+    .tune-info {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: right];
+    }
+    
+    .tune-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .tune-description {
+      margin-bottom: 10px;
+    }
+    
+    .tune-price {
+      font-weight: bold;
+    }
   </style>
   <script>
     window.addEventListener('scroll', function() {
@@ -160,12 +182,30 @@
       </div>
     </div>
     <button type="button" class="button"><a href="../index.html">Home</a></button>
-    <button type="button" class="button"><a href="/html files/about.html">About</a></button>
+    <button type="button" class="button"><a href="/html files/about.html">Bookings</a></button>
     <button type="button" class="button"><a href="/html files/contact.html">Contact</a></button>
   </nav>
-
   
   <div class="content">
     <div class="text-container">
-      <h2>Tune ups</h2>
-      <p>Tune ups are for.....Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed dignissim felis. Morbi et
+      <h2>Tune-ups</h2>
+      <div class="tune-info">
+        <div class="tune-title">Bronze Tune - $100</div>
+        <div class="tune-description">All adjustments are included</div>
+      </div>
+      <div class="tune-info">
+        <div class="tune-title">Silver Tune - $140</div>
+        <div class="tune-description">Covers all adjustments, wheel true, bike wipe down, degrease and lube drivetrain, sealant install</div>
+      </div>
+      <div class="tune-info">
+        <div class="tune-title">Gold Tune - $200</div>
+        <div class="tune-description">Covers all adjustments, Overhauls on the hub, headset and Bottom Bracket, wheel true, bike wipe down, degrease and lube drivetrain sealent install, Cables included</div>
+      </div>
+      <div class="tune-info">
+        <div class="tune-title">Platinum Tune - Contact for Pricing</div>
+        <div class="tune-description">Covers all adjustments, Overhauls on the hub, headset and Bottom Bracket, wheel true, sealent install, Full bike detailing, bleed both brakes, All cables and housing are included</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

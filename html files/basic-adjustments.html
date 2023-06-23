@@ -13,10 +13,6 @@
     }
     
     header {
-      position: relative; /* Add position relative to the header */
-      background-image: url("/assets/bike2.png"); /* Add background image */
-      background-size: cover; /* Adjust background image size */
-      background-repeat: no-repeat; /* Prevent background image repetition */
       padding: 20px;
       display: flex;
       align-items: center;
@@ -30,34 +26,14 @@
     }
     
     .logo.shrink {
-      width: 60px;
-    }
-    
-    .overlay-container {
-      position: relative; /* Add position relative to the container */
-      z-index: 0; /* Set lower z-index to place below other elements */
-    }
-    
-    .overlay {
-      position: absolute; /* Add position absolute to create overlay */
-      top: 100%; /* Adjust the top value to position the overlay below the content */
-      left: 0;
-      width: 100%;
-      height: calc(100% - 100px); /* Adjust the height value to account for the space occupied by the nav bar */
-      background-image: url("/assets/eli2.png"); /* Add overlay image */
-      background-size: cover; /* Adjust overlay image size */
-      background-repeat: no-repeat; /* Prevent overlay image repetition */
-      opacity: 0.5; /* Adjust overlay opacity */
-      z-index: -1; /* Set lower z-index to place below other elements */
+      width: 100px;
     }
     
     nav {
       background-color: #fff;
       padding: 10px;
       text-align: center;
-      width: 100%; /* Set the width to 100% */
-      position: relative; /* Add position relative to the nav */
-      z-index: 1; /* Add higher z-index to keep nav on top */
+      width: 100%;
     }
     
     nav a {
@@ -67,35 +43,48 @@
       font-weight: bold;
     }
     
-    .content {
-      padding: 20px;
-      margin-top: 50px;
-      position: relative; /* Add position relative to the content */
-      z-index: 1; /* Add higher z-index to keep content on top of the overlay */
+    .dropdown {
+      position: relative;
+      display: inline-block;
     }
     
-    h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
+    .dropdown-menu-icon {
+      width: 20px;
+      height: 20px;
+      background-image: url("/assets/menu.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
     }
     
-    p {
-      margin-bottom: 20px;
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
     }
     
-    footer {
-      background-color: #333;
-      padding: 20px;
-      text-align: center;
-      color: #fff;
+    .dropdown-content a {
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
     }
     
     .button {
       display: inline-block;
       margin: 10px;
       padding: 10px 20px;
-      background-color: #fff;
-      color: #000;
+      background-color: #f5f5f5;
+      color: #333;
       text-decoration: none;
       border: none;
       border-radius: 0;
@@ -104,6 +93,52 @@
     
     .button:hover {
       background-color: #ddd;
+    }
+  
+    .full-page-img {
+      width: 50%; /* Adjust the width as per your preference */
+      float: left;
+    }
+    
+    .text-container {
+      width: 50%;
+      float: left;
+      padding: 10%;
+    }
+    
+    .signup-button {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: yellow;
+      color: #333;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      z-index: 1;
+    }
+    
+    .tune-info {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: right;
+    }
+    
+    .tune-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .tune-description {
+      margin-bottom: 10px;
+    }
+    
+    .tune-price {
+      font-weight: bold;
     }
   </style>
   <script>
@@ -115,28 +150,71 @@
         logo.classList.remove('shrink');
       }
     });
+    document.addEventListener('DOMContentLoaded', function() {
+      var servicesDropdown = document.querySelector('.services-dropdown');
+      var servicesButton = document.querySelector('.dropdown.services button');
+      servicesButton.addEventListener('click', function(event) {
+        event.stopPropagation();
+        servicesDropdown.style.display = 'block';
+      });
+      document.addEventListener('click', function() {
+        servicesDropdown.style.display = 'none';
+      });
+    });
   </script>
 </head>
 <body>
   <header>
     <img src="/assets/eli.png" alt="Cyclo Punk Logo" class="logo">
   </header>
-    <nav>
+  <nav>
+    <div class="dropdown">
+      <button class="button dropdown-menu-icon"></button>
+      <div class="dropdown-content">
+        <a href="/html files/parts.html">Parts</a>
+        <div class="dropdown services">
+          <button class="button">Services</button>
+          <div class="dropdown-content services-dropdown">
+            <a href="/html files/tune-ups.html">Tune-ups</a>
+            <a href="/html files/basic-adjustments.html">Basic Adjustments</a>
+            <a href="/html files/a-la-carte.html">A-La-Carte</a>
+          </div>
+        </div>
+      </div>
+    </div>
     <button type="button" class="button"><a href="../index.html">Home</a></button>
-    <button type="button" class="button"><a href="/html files/about.html">About</a></button>
+    <button type="button" class="button"><a href="/html files/about.html">Bookings</a></button>
     <button type="button" class="button"><a href="/html files/contact.html">Contact</a></button>
   </nav>
-  <div class="overlay-container">
-    <div class="content">
+  
+  <div class="content">
+    <div class="text-container">
       <h2>Basic Adjustments</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed dignissim felis. Morbi et enim at nibh semper feugiat sed vel arcu. Fusce sed felis in odio efficitur auctor non id quam. Vestibulum nec nunc at ipsum tincidunt tristique. Aliquam erat volutpat. In hac habitasse platea dictumst. Mauris eget diam sed justo auctor aliquam at sed nulla.</p>
-    
+      <ul>
+        <li>Safety Check - $25</li>
+        <li>Derailleur adj (front or rear) - $15</li>
+        <li>Brake Adj (disk) - $20</li>
+        <li>Brake adj (rim) - $15</li>
+        <li>Tire/Tube change - $10/wheel</li>
+        <li>E-bike flat change (rear wheel only) - $25</li>
+        <li>Tubeless sealant install - $15/wheel</li>
+        <li>Tubeless set up (sealant, and tubeless tape included) - $30</li>
+        <li>Wheel true - $20</li>
+        <li>Wheel rebuild - $50</li>
+        <li>Bike wipe down - $15</li>
+        <li>Bike full detail cleaning - $40</li>
+        <li>Drivetrain cleaning, degrease and lube - $45</li>
+        <li>Chain installation - $10</li>
+        <li>Cassette installation - $15</li>
+        <li>Chainring install - $25</li>
+        <li>Bar tape install - $20</li>
+        <li>Hydraulic Brake bleed - $40</li>
+        <li>Bicycle Assembly from box - $90</li>
+        <li>Custom Bike Build - $250 (w parts list), $280 (w/o parts list)</li>
+        <li>Used bike pre purchase inspection - $40</li>
+        <li>Much more repairs are available! If it’s not on the list contact us, we would most likely have it.</li>
+      </ul>
     </div>
-    <div class="overlay"></div> <!-- Add overlay div -->
   </div>
-
-  <footer>
-    <p>&copy; 2023 My Website. All rights reserved.</p>
-  </footer>
 </body>
 </html>
