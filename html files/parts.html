@@ -2,16 +2,17 @@
 <html>
 <head>
   <title>Parts</title>
-  <style>
+ <style>
     /* CSS styles */
+    @import url('https://fonts.googleapis.com/css2?family=Tahoma&display=swap');
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: Tahoma, Arial, sans-serif; /* Update the font-family property */
       margin: 0;
       padding: 0;
       background-color: #f5f5f5;
       color: #333;
     }
-    
     header {
       position: relative; /* Add position relative to the header */
       background-image: url("/assets/bike2.png"); /* Add background image */
@@ -89,6 +90,41 @@
       text-align: center;
       color: #fff;
     }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-menu-icon {
+      width: 20px;
+      height: 20px;
+      background-image: url("/assets/menu.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 12% 16%;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
     
     .button {
       display: inline-block;
@@ -145,6 +181,17 @@
     .product-description {
       margin-bottom: 10px;
     }
+   footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
   </style>
   <script>
     window.addEventListener('scroll', function() {
@@ -162,10 +209,23 @@
     <img src="/assets/eli.png" alt="Cyclo Punk Logo" class="logo">
   </header>
   <nav>
+    <div class="dropdown">
+      <a href="/html files/parts.html" class="button" 
+  style="background-color: #B6977D;">Parts</a>
+    </div>
+    <div class="dropdown">
+      <a href="#" class="button">Services</a>
+      <div class="dropdown-content">
+        <a href="/html files/tune-ups.html">Tune-ups</a>
+        <a href="/html files/basic-adjustments.html">Basic Adjustments</a>
+        <a href="/html files/a-la-carte.html">A-La-Carte</a>
+      </div>
+    </div>
     <button type="button" class="button"><a href="../index.html">Home</a></button>
     <button type="button" class="button"><a href="/html files/about.html">Bookings</a></button>
     <button type="button" class="button"><a href="/html files/contact.html">Contact</a></button>
   </nav>
+
   <div class="overlay-container">
     <div class="content">
       <h2>Parts</h2>
@@ -181,12 +241,11 @@
         </div>
       </div>
       <!-- Add more product boxes here -->
-    </div>
-    <div class="overlay"></div> <!-- Add overlay div -->
-  </div>
 
   <footer>
-    <p>&copy; 2023 My Website. All rights reserved.</p>
+    <p>&copy; 2023 Cyclo Punk. All rights reserved.</p>
+     <a href="https://www.instagram.com/cyclo_punk/" target="_blank">Instagram |</a>
+  Number: 626-314-0965 | Email: <a href="mailto:ahabelle2023@gmail.com">eastpeakvideos@gmail.com</a></div>
   </footer>
 </body>
 </html>

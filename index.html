@@ -4,50 +4,52 @@
   <title>Cyclo Punk</title>
   <style>
     /* CSS styles */
+    @import url('https://fonts.googleapis.com/css2?family=Tahoma&display=swap');
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: Tahoma, Arial, sans-serif; /* Update the font-family property */
       margin: 0;
       padding: 0;
       background-color: #f5f5f5;
       color: #333;
     }
-    
+
     header {
       padding: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    
+
     .logo {
       width: 150px;
       margin-right: 20px;
       transition: width 0.3s;
     }
-    
+
     .logo.shrink {
       width: 100px;
     }
-    
+
     nav {
       background-color: #fff;
       padding: 10px;
       text-align: center;
       width: 100%;
     }
-    
+
     nav a {
       margin: 0 10px;
       text-decoration: none;
       color: #333;
       font-weight: bold;
     }
-    
+
     .dropdown {
       position: relative;
       display: inline-block;
     }
-    
+
     .dropdown-menu-icon {
       width: 20px;
       height: 20px;
@@ -58,7 +60,7 @@
       border: none;
       cursor: pointer;
     }
-    
+
     .dropdown-content {
       display: none;
       position: absolute;
@@ -67,45 +69,45 @@
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
       z-index: 1;
     }
-    
+
     .dropdown-content a {
       color: #333;
       padding: 12% 16%;
       text-decoration: none;
       display: block;
     }
-    
+
     .dropdown:hover .dropdown-content {
       display: block;
     }
-    
+
     .button {
       display: inline-block;
       margin: 10px;
       padding: 10px 20px;
-      background-color: #f5f5f5;
+      background-color: #fff;
       color: #333;
       text-decoration: none;
       border: none;
       border-radius: 0;
       font-weight: bold;
     }
-    
+
     .button:hover {
       background-color: #ddd;
     }
-  
+
     .full-page-img {
       width: 100%;
       height: auto;
       z-index: -1;
       transition: transform 0.5s, width 0.5s;
     }
-    
+
     .full-page-img.shrink {
       height: 50%; /* Adjust the height percentage as desired */
     }
-    
+
     .signup-button {
       position: absolute;
       top: 50%;
@@ -120,69 +122,68 @@
       transition: right 0.3s;
       transform: translateY(-50%);
     }
-    
+
     .signup-button.shrink {
       right: 160px;
     }
-    
+
     .signup-button.show {
       right: 20px;
     }
-    
+
     .signup-button.show.shrink {
       right: 60px;
     }
-    
+
     .signup-button a {
       color: #333;
       text-decoration: none;
     }
-    
+
     footer {
       background-color: #333;
       color: #fff;
       text-align: center;
       padding: 20px;
     }
-    
+
     footer a {
       color: #fff;
       text-decoration: none;
     }
   </style>
-<script>
-  window.addEventListener('scroll', function() {
-    var logo = document.querySelector('.logo');
-    var bikeImage = document.querySelector('.full-page-img');
-    var signupButton = document.querySelector('.signup-button');
+  <script>
+    window.addEventListener('scroll', function() {
+      var logo = document.querySelector('.logo');
+      var bikeImage = document.querySelector('.full-page-img');
+      var signupButton = document.querySelector('.signup-button');
 
-    if (window.scrollY > 0) {
-      logo.classList.add('shrink');
-      bikeImage.classList.add('shrink');
-    } else {
-      logo.classList.remove('shrink');
-      bikeImage.classList.remove('shrink');
-    }
-  });
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var logo = document.querySelector('.logo');
-    var bikeImage = document.querySelector('.full-page-img');
-    var signupButton = document.querySelector('.signup-button');
-
-    var observer = new IntersectionObserver(function(entries) {
-      if (entries.some(entry => entry.isIntersecting)) {
-        signupButton.classList.remove('show');
+      if (window.scrollY > 0) {
+        logo.classList.add('shrink');
+        bikeImage.classList.add('shrink');
       } else {
-        signupButton.classList.add('show');
+        logo.classList.remove('shrink');
+        bikeImage.classList.remove('shrink');
       }
     });
 
-    observer.observe(logo);
-    observer.observe(bikeImage);
-  });
-</script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var logo = document.querySelector('.logo');
+      var bikeImage = document.querySelector('.full-page-img');
+      var signupButton = document.querySelector('.signup-button');
 
+      var observer = new IntersectionObserver(function(entries) {
+        if (entries.some(entry => entry.isIntersecting)) {
+          signupButton.classList.remove('show');
+        } else {
+          signupButton.classList.add('show');
+        }
+      });
+
+      observer.observe(logo);
+      observer.observe(bikeImage);
+    });
+  </script>
 </head>
 <body>
   <header>
@@ -190,22 +191,14 @@
   </header>
   <nav>
     <div class="dropdown">
-      <button class="button dropdown-menu-icon"></button>
-      <div class="dropdown-content">
-        <a href="/html files/parts.html">Parts</a>
-      </div>
+      <a href="/html files/parts.html" class="button">Parts</a>
     </div>
     <div class="dropdown">
-      <button class="button dropdown-menu-icon"></button>
+      <a href="#" class="button">Services</a>
       <div class="dropdown-content">
-        <div class="dropdown services">
-          <button class="button">Services</button>
-          <div class="dropdown-content services-dropdown">
-            <a href="/html files/tune-ups.html">Tune-ups</a>
-            <a href="/html files/basic-adjustments.html">Basic Adjustments</a>
-            <a href="/html files/a-la-carte.html">A-La-Carte</a>
-          </div>
-        </div>
+        <a href="/html files/tune-ups.html">Tune-ups</a>
+        <a href="/html files/basic-adjustments.html">Basic Adjustments</a>
+        <a href="/html files/a-la-carte.html">A-La-Carte</a>
       </div>
     </div>
     <button type="button" class="button"><a href="../index.html">Home</a></button>
@@ -213,7 +206,6 @@
     <button type="button" class="button"><a href="/html files/contact.html">Contact</a></button>
   </nav>
 
-  
   <div class="content">
     <img src="/assets/bike2.png" alt="Pexels_free_bike_image" class="full-page-img">
     <a href="/html files/signup.html" class="signup-button">Sign Up/Sign in</a>
@@ -221,16 +213,12 @@
   <h2>Who is Cyclo Punk?</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed dignissim felis. Morbi et enim at nibh semper feugiat sed vel arcu. Fusce sed felis in odio efficitur auctor non id quam. Vestibulum nec nunc at ipsum tincidunt tristique. Aliquam erat volutpat. In hac habitasse platea dictumst. Mauris eget diam sed justo auctor aliquam at sed nulla. Nullam at sem sit amet leo laoreet interdum. Sed placerat magna vel lacus tristique scelerisque. Proin malesuada odio in diam convallis sollicitudin. Duis sed tortor at tortor iaculis sollicitudin. Nam vel dignissim enim, ac vestibulum lorem. Nulla facilisi.</p>
 
-  
   <footer>
-    <p>&copy; 2023 My Website. All rights reserved.</p>
+    <p>&copy; 2023 Cyclo Punk. All rights reserved.</p>
     <div>
-      Instagram: <a href="https://www.instagram.com/cyclo_punk/">@cyclo_punk</a>
-    </div>
-    <div>Number: 626-314-0965</div>
-    <div>
-      Email: <a href="mailto:ahabelle2023@gmail.com">ahabelle2023@gmail.com</a>
-    </div>
+   <a href="https://www.instagram.com/cyclo_punk/" target="_blank">Instagram |</a>
+   
+  Number: 626-314-0965 | Email: <a href="mailto:ahabelle2023@gmail.com">eastpeakvideos@gmail.com</a></div>
   </footer>
 </body>
 </html>
